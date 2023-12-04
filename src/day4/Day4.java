@@ -1,6 +1,5 @@
 package day4;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -19,20 +18,20 @@ public class Day4 {
     public static Integer part1(ArrayList<String> inputs) {
         int result = 0;
         for (String input : inputs) {
-            result += parseInput(input);
+            result += calculateWinningCards(input);
         }
         return result;
     }
 
     public Integer part2(ArrayList<String> inputs) {
-        int index = 0;
+        int index = 0, cardCount = inputs.size();
         ArrayList<Card> cards = buildCardList(inputs);
         for (Card currentCard : cards) {
             int numberOfWins = 0;
             String input = currentCard.value;
             input = input.split(":")[1];
             String[] scratchCardNumbers = input.split("\\|");
-            Set<Integer> winningSet = new HashSet<Integer>();
+            Set<Integer> winningSet = new HashSet<>();
             for (String number : scratchCardNumbers[0].split("\\s+")) {
                 if (!number.equals("")) {
                     winningSet.add(Integer.parseInt(number));
@@ -44,20 +43,21 @@ public class Day4 {
                     if(!(numberOfWins + index > cards.size())) {
                         Card cardToCopy = cards.get(numberOfWins + index);
                         cardToCopy.copies += currentCard.copies;
+                        cardCount += currentCard.copies;
                         cards.set(numberOfWins + index, cardToCopy);
                     }
                 }
             }
             index++;
         }
-        return sumCardCopies(cards);
+        return cardCount;
     }
 
-    public static int parseInput(String input) {
+    public static int calculateWinningCards(String input) {
         int result = 0;
         input = input.split(":")[1];
         String[] scratchCardNumbers = input.split("\\|");
-        Set<Integer> winningSet = new HashSet<Integer>();
+        Set<Integer> winningSet = new HashSet<>();
         for (String number : scratchCardNumbers[0].split("\\s+")) {
             if (!number.equals("")) {
                 winningSet.add(Integer.parseInt(number));
@@ -76,17 +76,9 @@ public class Day4 {
     }
 
     private ArrayList<Card> buildCardList(ArrayList<String> inputs) {
-        ArrayList<Card> result = new ArrayList<Card>();
+        ArrayList<Card> result = new ArrayList<>();
         for (String input : inputs) {
             result.add(new Card(1, input));
-        }
-        return result;
-    }
-
-    private Integer sumCardCopies(ArrayList<Card> cards) {
-        int result = 0;
-        for (Card card : cards) {
-            result += card.copies;
         }
         return result;
     }
