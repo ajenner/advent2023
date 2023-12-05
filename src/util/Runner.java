@@ -4,6 +4,7 @@ import day1.Day1;
 import day2.Day2;
 import day3.Day3;
 import day4.Day4;
+import day5.Day5;
 
 import java.util.ArrayList;
 
@@ -12,7 +13,8 @@ public class Runner {
         //runDay1();
         //runDay2();
         //runDay3();
-        runDay4();
+        //runDay4();
+        runDay5();
     }
 
     private static void runDay1() {
@@ -45,5 +47,14 @@ public class Runner {
         ArrayList<String> day4Inputs = reader.readAsStrings();
         System.out.println("Question 1: " + Day4.part1(day4Inputs));
         System.out.println("Question 2: " + new Day4().part2(day4Inputs));
+    }
+
+    private static void runDay5() {
+        System.out.println("Day5: ");
+        Reader reader = new Reader("src/data/day5.txt");
+        ArrayList<String> day5Inputs = reader.readAsStrings();
+        Day5 day5 = new Day5(day5Inputs);
+        System.out.println("Question 1: " + day5.part1());
+        System.out.println("Question 2: " + day5.part2());
     }
 }
