@@ -1,10 +1,12 @@
-package day4;
+package days;
+
+import templates.DayTemplate;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Day4 {
+public class Day4 extends DayTemplate {
 
     class Card {
         Integer copies;
@@ -81,5 +83,10 @@ public class Day4 {
             result.add(new Card(1, input));
         }
         return result;
+    }
+
+    @Override
+    public Object solve(boolean part1, ArrayList<String> inputs) {
+        return (part1)? part1(inputs) : part2(inputs);
     }
 }

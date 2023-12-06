@@ -1,14 +1,12 @@
-package day6;
+package days;
+
+import templates.DayTemplate;
 
 import java.util.ArrayList;
 
-public class Day6 {
+public class Day6 extends DayTemplate {
 
     ArrayList<String> inputs;
-
-    public Day6(ArrayList<String> inputs) {
-        this.inputs = inputs;
-    }
 
     private ArrayList<Race> buildRaceList() {
         ArrayList<Race> races = new ArrayList<>();
@@ -61,5 +59,11 @@ public class Day6 {
         private long computeDistance(long i) {
             return i * (this.time - i);
         }
+    }
+
+    @Override
+    public Object solve(boolean part1, ArrayList<String> inputs) {
+        this.inputs = inputs;
+        return (part1)? part1() : part2();
     }
 }

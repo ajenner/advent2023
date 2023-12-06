@@ -1,8 +1,10 @@
-package day2;
+package days;
+
+import templates.DayTemplate;
 
 import java.util.ArrayList;
 
-public class Day2 {
+public class Day2 extends DayTemplate {
 
     private static final int MAX_RED = 12;
     private static final int MAX_GREEN = 13;
@@ -67,5 +69,10 @@ public class Day2 {
             }
         }
         return minRed * minGreen * minBlue;
+    }
+
+    @Override
+    public Object solve(boolean part1, ArrayList<String> inputs) {
+        return (part1)? part1(inputs) : part2(inputs);
     }
 }
