@@ -1,71 +1,28 @@
 package util;
 
-import day1.Day1;
-import day2.Day2;
-import day3.Day3;
-import day4.Day4;
-import day5.Day5;
-import day6.Day6;
-
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 public class Runner {
-    public static void main(String[] args) {
-        //runDay1();
-        //runDay2();
-        //runDay3();
-        //runDay4();
-        //runDay5();
-        runDay6();
-    }
 
-    private static void runDay1() {
-        System.out.println("Day1: ");
-        Reader reader = new Reader("src/data/day1.txt");
-        ArrayList<String> day1Inputs = reader.readAsStrings();
-        System.out.println("Question 1: " + Day1.part1(day1Inputs));
-        System.out.println("Question 2: " + Day1.part2(day1Inputs));
-    }
+    public static void main(String[] args) throws Exception {
+        String[] days = new String[] {"1","2","3","4","5","6"};
+        boolean[] parts = new boolean[] {true, false};
 
-    private static void runDay2() {
-        System.out.println("Day2: ");
-        Reader reader = new Reader("src/data/day2.txt");
-        ArrayList<String> day2Inputs = reader.readAsStrings();
-        System.out.println("Question 1: " + Day2.part1(day2Inputs));
-        System.out.println("Question 2: " + Day2.part2(day2Inputs));
-    }
-
-    private static void runDay3() {
-        System.out.println("Day3: ");
-        Reader reader = new Reader("src/data/day3.txt");
-        ArrayList<String> day3Inputs = reader.readAsStrings();
-        System.out.println("Question 1: " + Day3.part1(day3Inputs));
-        System.out.println("Question 2: " + Day3.part2(day3Inputs));
-    }
-
-    private static void runDay4() {
-        System.out.println("Day4: ");
-        Reader reader = new Reader("src/data/day4.txt");
-        ArrayList<String> day4Inputs = reader.readAsStrings();
-        System.out.println("Question 1: " + Day4.part1(day4Inputs));
-        System.out.println("Question 2: " + new Day4().part2(day4Inputs));
-    }
-
-    private static void runDay5() {
-        System.out.println("Day5: ");
-        Reader reader = new Reader("src/data/day5.txt");
-        ArrayList<String> day5Inputs = reader.readAsStrings();
-        Day5 day5 = new Day5(day5Inputs);
-        System.out.println("Question 1: " + day5.part1());
-        System.out.println("Question 2: " + day5.part2());
-    }
-
-    private static void runDay6() {
-        System.out.println("Day6: ");
-        Reader reader = new Reader("src/data/day6.txt");
-        ArrayList<String> day6Inputs = reader.readAsStrings();
-        Day6 day6 = new Day6(day6Inputs);
-        System.out.println("Question 1: " + day6.part1());
-        System.out.println("Question 2: " + day6.part2());
+        for (String day : days) {
+            Class<?> cls = Class.forName("days.Day" + day);
+            boolean exclude = (boolean) cls.getMethod("exclude").invoke(cls.getDeclaredConstructor().newInstance());
+            if (exclude) {
+                System.out.println("Excluding day" + day + "\n");
+                continue;
+            }
+            for (boolean part : parts) {
+                Reader reader = new Reader("src/data/day" + day + ".txt");
+                ArrayList<String> inputs = reader.readAsStrings();
+                Method m = cls.getMethod("timeAndLogResult", String.class, boolean.class, ArrayList.class);
+                m.invoke(cls.getDeclaredConstructor().newInstance(), day, part, inputs);
+            }
+            System.out.println("");
+        }
     }
 }

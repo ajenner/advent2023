@@ -1,8 +1,10 @@
-package day3;
+package days;
+
+import templates.DayTemplate;
 
 import java.util.ArrayList;
 
-public class Day3 {
+public class Day3 extends DayTemplate {
 
     public static Integer part1(ArrayList<String> inputs) {
         ArrayList<char[]> charsMap = buildCharArray(inputs);
@@ -157,5 +159,10 @@ public class Day3 {
             result.add(i, inputs.get(i).toCharArray());
         }
         return result;
+    }
+
+    @Override
+    public Object solve(boolean part1, ArrayList<String> inputs) {
+        return (part1)? part1(inputs) : part2(inputs);
     }
 }
