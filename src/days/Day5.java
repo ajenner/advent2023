@@ -1,9 +1,11 @@
-package day5;
+package days;
+
+import templates.DayTemplate;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class Day5 {
+public class Day5 extends DayTemplate {
     private ArrayList<MapNode> seedToSoilMap, soilToFertilizerMap, fertilizerToWaterMap, waterToLightMap, lightToTemperatureMap, temperatureToHumidityMap, humidityToLocationMap;
     private HashSet<Long> seeds;
     private Long part2;
@@ -14,18 +16,6 @@ public class Day5 {
     private final String LIGHT_TO_TEMPERATURE = "light-to-temperature";
     private final String TEMPERATURE_TO_HUMIDITY = "temperature-to-humidity";
     private final String HUMIDITY_TO_LOCATION = "humidity-to-location";
-
-    public Day5(ArrayList<String> inputs) {
-        buildSeedsList(inputs.get(0));
-        seedToSoilMap = buildXToYMapNodes(inputs, findFirstIndexMatchingString(inputs, SEED_TO_SOIL) + 1);
-        soilToFertilizerMap = buildXToYMapNodes(inputs, findFirstIndexMatchingString(inputs, SOIL_TO_FERTILIZER) + 1);
-        fertilizerToWaterMap = buildXToYMapNodes(inputs, findFirstIndexMatchingString(inputs, FERTILIZER_TO_WATER) + 1);
-        waterToLightMap = buildXToYMapNodes(inputs, findFirstIndexMatchingString(inputs, WATER_TO_LIGHT) + 1);
-        lightToTemperatureMap = buildXToYMapNodes(inputs, findFirstIndexMatchingString(inputs, LIGHT_TO_TEMPERATURE) + 1);
-        temperatureToHumidityMap = buildXToYMapNodes(inputs, findFirstIndexMatchingString(inputs, TEMPERATURE_TO_HUMIDITY) + 1);
-        humidityToLocationMap = buildXToYMapNodes(inputs, findFirstIndexMatchingString(inputs, HUMIDITY_TO_LOCATION) + 1);
-        buildSeedsListWithRanges(inputs.get(0));
-    }
 
     public Long part1() {
         Long currentLowest = Long.MAX_VALUE;
@@ -116,5 +106,24 @@ public class Day5 {
             }
             return input;
         }
+    }
+
+    @Override
+    public Object solve(boolean part1, ArrayList<String> inputs) {
+        buildSeedsList(inputs.get(0));
+        seedToSoilMap = buildXToYMapNodes(inputs, findFirstIndexMatchingString(inputs, SEED_TO_SOIL) + 1);
+        soilToFertilizerMap = buildXToYMapNodes(inputs, findFirstIndexMatchingString(inputs, SOIL_TO_FERTILIZER) + 1);
+        fertilizerToWaterMap = buildXToYMapNodes(inputs, findFirstIndexMatchingString(inputs, FERTILIZER_TO_WATER) + 1);
+        waterToLightMap = buildXToYMapNodes(inputs, findFirstIndexMatchingString(inputs, WATER_TO_LIGHT) + 1);
+        lightToTemperatureMap = buildXToYMapNodes(inputs, findFirstIndexMatchingString(inputs, LIGHT_TO_TEMPERATURE) + 1);
+        temperatureToHumidityMap = buildXToYMapNodes(inputs, findFirstIndexMatchingString(inputs, TEMPERATURE_TO_HUMIDITY) + 1);
+        humidityToLocationMap = buildXToYMapNodes(inputs, findFirstIndexMatchingString(inputs, HUMIDITY_TO_LOCATION) + 1);
+        buildSeedsListWithRanges(inputs.get(0));
+        return (part1)? part1() : part2();
+    }
+
+    @Override
+    public boolean exclude() {
+        return true;
     }
 }

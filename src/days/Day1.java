@@ -1,9 +1,11 @@
-package day1;
+package days;
+
+import templates.DayTemplate;
 
 import java.util.ArrayList;
 import java.util.Map;
 
-public class Day1 {
+public class Day1 extends DayTemplate {
 
     private static Map<String, String> numbers = Map.of("one", "o1e",
             "two", "t2o",
@@ -45,5 +47,10 @@ public class Day1 {
             input = input.replaceAll(key, numbers.get(key));
         }
         return input;
+    }
+
+    @Override
+    public Object solve(boolean part1, ArrayList<String> inputs) {
+        return (part1)? part1(inputs) : part2(inputs);
     }
 }
