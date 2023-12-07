@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Runner {
 
     public static void main(String[] args) throws Exception {
-        String[] days = new String[] {"1","2","3","4","5","6"};
+        String[] days = new String[] {"1","2","3","4","5","6","7"};
         boolean[] parts = new boolean[] {true, false};
 
         for (String day : days) {
