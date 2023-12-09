@@ -37,7 +37,7 @@ public class Day9 extends DayTemplate {
             }
         }
     }
-    
+
     @Override
     public Object solve(boolean part1, ArrayList<String> inputs) {
         Integer total = 0;
