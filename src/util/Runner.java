@@ -6,8 +6,8 @@ import java.util.ArrayList;
 public class Runner {
 
     public static void main(String[] args) throws Exception {
-        String[] days = new String[] {"8"};
-        boolean[] parts = new boolean[] {false};
+        String[] days = new String[] {"9"};
+        boolean[] parts = new boolean[] {true, false};
 
         for (String day : days) {
             Class<?> cls = Class.forName("days.Day" + day);
