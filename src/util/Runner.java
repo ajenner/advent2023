@@ -4,6 +4,10 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 public class Runner {
+    static boolean runSamples = true;
+    static String[] sampleAnswers1 = new String[]        {"142", "8",    "4361",   "13",  "35",  "288",   "6440", "2",  "114", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null};
+    static String[] sampleAnswers2 = new String[]        {"281", "2286", "467835", "30",  "46",  "71503", "5905", "6",  "2"  , null, null, null, null, null, null, null, null, null, null, null, null, null, null, null};
+    static boolean[] hasDifferentSamples = new boolean[] {true,  false,  false,    false, false, false,    false, true, false, false,false,false,false,false,false,false,false,false,false,false,false,false,false,false};
 
     public static void main(String[] args) throws Exception {
         String[] days = new String[] {"1","2","3","4","5","6","7","8","9"};
@@ -17,12 +21,37 @@ public class Runner {
                 continue;
             }
             for (boolean part : parts) {
+                boolean samplePassed = runSamples(cls, day, part);
+                if (runSamples && !samplePassed) {
+                    continue;
+                }
                 Reader reader = new Reader("src/data/day" + day + ".txt");
                 ArrayList<String> inputs = reader.readAsStrings();
                 Method m = cls.getMethod("timeAndLogResult", String.class, boolean.class, ArrayList.class);
                 m.invoke(cls.getDeclaredConstructor().newInstance(), day, part, inputs);
+                System.out.println("");
             }
-            System.out.println("");
         }
+    }
+
+    private static boolean runSamples(Class<?> cls, String day, boolean part1) throws Exception {
+        if (!runSamples) {
+            return true;
+        }
+        System.out.print("Sample ");
+        int index = Integer.parseInt(day) - 1;
+        Reader reader = new Reader("src/test/day" + day + "sample" + ((hasDifferentSamples[index] && !part1)? "2" : "") + ".txt");
+        ArrayList<String> inputs = reader.readAsStrings();
+        Method m = cls.getMethod("timeAndLogResult", String.class, boolean.class, ArrayList.class);
+        String result = (String) m.invoke(cls.getDeclaredConstructor().newInstance(), day, part1, inputs);
+        String sampleAnswer = (part1) ? sampleAnswers1[index] : sampleAnswers2[index];
+        if (sampleAnswer == null) {
+            return true;
+        }
+        boolean passed =  result.equals(sampleAnswer);
+        if (!passed) {
+            System.out.println("\nSample failed! Expected: " + sampleAnswer + " Actual: " + result + "\n");
+        }
+        return passed;
     }
 }

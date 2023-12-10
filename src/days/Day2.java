@@ -73,6 +73,6 @@ public class Day2 extends DayTemplate {
 
     @Override
     public Object solve(boolean part1, ArrayList<String> inputs) {
-        return (part1)? part1(inputs) : part2(inputs);
+        return (part1)? part1(inputs).toString() : part2(inputs).toString();
     }
 }

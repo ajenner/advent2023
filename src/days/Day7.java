@@ -11,11 +11,11 @@ public class Day7 extends DayTemplate {
     @Override
     public Object solve(boolean part1, ArrayList<String> inputs) {
         buildHands(part1, inputs);
-        long bid = 0L;
+        Long bid = 0L;
         for (int i = 0; i < hands.size(); i++) {
             bid += (long) hands.get(i).bid * (i + 1);
         }
-        return bid;
+        return bid.toString();
     }
 
     private void buildHands(boolean part1, ArrayList<String> inputs) {

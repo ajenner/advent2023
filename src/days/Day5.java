@@ -147,11 +147,6 @@ public class Day5 extends DayTemplate {
         lightToTemperatureMap = buildXToYMapNodes(inputs, findFirstIndexMatchingString(inputs, LIGHT_TO_TEMPERATURE) + 1);
         temperatureToHumidityMap = buildXToYMapNodes(inputs, findFirstIndexMatchingString(inputs, TEMPERATURE_TO_HUMIDITY) + 1);
         humidityToLocationMap = buildXToYMapNodes(inputs, findFirstIndexMatchingString(inputs, HUMIDITY_TO_LOCATION) + 1);
-        return (part1)? part1() : part2();
-    }
-
-    @Override
-    public boolean exclude() {
-        return true;
+        return (part1)? part1().toString() : part2().toString();
     }
 }

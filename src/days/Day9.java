@@ -44,6 +44,6 @@ public class Day9 extends DayTemplate {
         for (String line : inputs) {
             total += enumerate(part1, line);
         }
-        return total;
+        return total.toString();
     }
 }

@@ -22,7 +22,7 @@ public class Day8 extends DayTemplate {
         } else {
             steps = ghostWalk(instructions);
         }
-        return steps;
+        return steps.toString();
     }
 
     private Long traverse(String[] instructions) {
