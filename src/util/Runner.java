@@ -5,12 +5,12 @@ import java.util.ArrayList;
 
 public class Runner {
     static boolean runSamples = true;
-    static String[] sampleAnswers1 = new String[]        {"142", "8",    "4361",   "13",  "35",  "288",   "6440", "2",  "114", "8",  "374",      "21",     "405", null, null, null, null, null, null, null, null, null, null, null};
-    static String[] sampleAnswers2 = new String[]        {"281", "2286", "467835", "30",  "46",  "71503", "5905", "6",  "2"  , "10", "82000210", "525152", "400", null, null, null, null, null, null, null, null, null, null, null};
-    static boolean[] hasDifferentSamples = new boolean[] {true,  false,  false,    false, false, false,    false, true, false, true, false,      false,    false,false,false,false,false,false,false,false,false,false,false,false};
+    static String[] sampleAnswers1 = new String[]        {"142", "8",    "4361",   "13",  "35",  "288",   "6440", "2",  "114", "8",  "374",      "21",     "405", "136", null, null, null, null, null, null, null, null, null, null};
+    static String[] sampleAnswers2 = new String[]        {"281", "2286", "467835", "30",  "46",  "71503", "5905", "6",  "2"  , "10", "82000210", "525152", "400", "64",  null, null, null, null, null, null, null, null, null, null};
+    static boolean[] hasDifferentSamples = new boolean[] {true,  false,  false,    false, false, false,    false, true, false, true, false,      false,    false, false, false,false,false,false,false,false,false,false,false,false};
 
     public static void main(String[] args) throws Exception {
-        String[] days = new String[] {"13"};
+        String[] days = new String[] {"14"};
         boolean[] parts = new boolean[] {true, false};
 
         for (String day : days) {
