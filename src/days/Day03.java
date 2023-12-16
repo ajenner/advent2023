@@ -4,7 +4,7 @@ import templates.DayTemplate;
 
 import java.util.ArrayList;
 
-public class Day3 extends DayTemplate {
+public class Day03 extends DayTemplate {
 
     public static Integer part1(ArrayList<String> inputs) {
         ArrayList<char[]> charsMap = buildCharArray(inputs);

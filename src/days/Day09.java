@@ -4,7 +4,7 @@ import templates.DayTemplate;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Day9 extends DayTemplate {
+public class Day09 extends DayTemplate {
 
     public ArrayList<Integer> parseNumbers (boolean part1, String line) {
         ArrayList<Integer> nums = new ArrayList<>();

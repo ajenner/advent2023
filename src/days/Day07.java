@@ -4,7 +4,7 @@ import templates.DayTemplate;
 
 import java.util.*;
 
-public class Day7 extends DayTemplate {
+public class Day07 extends DayTemplate {
 
     private ArrayList<Hand> hands;
 

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Day4 extends DayTemplate {
+public class Day04 extends DayTemplate {
 
     class Card {
         Integer copies;

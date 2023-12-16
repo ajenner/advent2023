@@ -10,7 +10,7 @@ public class Runner {
     static boolean[] hasDifferentSamples = new boolean[] {true,  false,  false,    false, false, false,    false, true, false, true, false,      false,    false, false, false,  false,false,false,false,false,false,false,false,false};
 
     public static void main(String[] args) throws Exception {
-        String[] days = new String[] {"16"};
+        String[] days = new String[] {"01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16"};
         boolean[] parts = new boolean[] {true, false};
 
         for (String day : days) {

@@ -4,7 +4,7 @@ import templates.DayTemplate;
 
 import java.util.ArrayList;
 
-public class Day2 extends DayTemplate {
+public class Day02 extends DayTemplate {
 
     private static final int MAX_RED = 12;
     private static final int MAX_GREEN = 13;

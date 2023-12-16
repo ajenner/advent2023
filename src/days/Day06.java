@@ -4,7 +4,7 @@ import templates.DayTemplate;
 
 import java.util.ArrayList;
 
-public class Day6 extends DayTemplate {
+public class Day06 extends DayTemplate {
 
     ArrayList<String> inputs;
 

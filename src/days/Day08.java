@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Day8 extends DayTemplate {
+public class Day08 extends DayTemplate {
 
     Tree tree;
 

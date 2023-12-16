@@ -28,11 +28,10 @@ public class Day16 extends DayTemplate {
             if (visited.get(currentTile).contains(d)) {
                 return;
             }
-            visited.get(currentTile).add(d);
         } else {
             visited.put(currentTile, new ArrayList<>());
-            visited.get(currentTile).add(d);
         }
+        visited.get(currentTile).add(d);
         currentTile.energized++;
         d = currentTile.convertDirection(d);
         switch (d) {

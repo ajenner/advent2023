@@ -5,7 +5,7 @@ import templates.DayTemplate;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class Day1 extends DayTemplate {
+public class Day01 extends DayTemplate {
 
     private static Map<String, String> numbers = Map.of("one", "o1e",
             "two", "t2o",

@@ -5,7 +5,7 @@ import templates.DayTemplate;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class Day5 extends DayTemplate {
+public class Day05 extends DayTemplate {
     private ArrayList<MapNode> seedToSoilMap, soilToFertilizerMap, fertilizerToWaterMap, waterToLightMap, lightToTemperatureMap, temperatureToHumidityMap, humidityToLocationMap;
     private ArrayList<SeedRange> seedRanges;
     private HashSet<Long> seeds;
