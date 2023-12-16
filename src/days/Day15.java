@@ -4,7 +4,7 @@ import templates.DayTemplate;
 import java.util.ArrayList;
 
 public class Day15 extends DayTemplate {
-    
+
     @Override
     public Object solve(boolean part1, ArrayList<String> inputs) {
         Integer result = 0;
