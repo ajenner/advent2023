@@ -180,4 +180,9 @@ public class Day16 extends DayTemplate {
             return null;
         }
     }
+
+    @Override
+    public boolean exclude() {
+        return true;
+    }
 }
